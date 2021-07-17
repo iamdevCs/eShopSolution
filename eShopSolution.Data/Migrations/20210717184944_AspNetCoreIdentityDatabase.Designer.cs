@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eShopSolution.Data.EF;
 
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    partial class EShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210717184944_AspNetCoreIdentityDatabase")]
+    partial class AspNetCoreIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,13 +94,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            RoleId = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -143,7 +138,7 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Key = "HomeKeyword",
-                            Value = "This is keyword of eShopSolution"
+                            Value = "This is home keyword of eShopSolution"
                         },
                         new
                         {
@@ -175,16 +170,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "2524180d-6434-4c1f-b5b9-20c684dd408b",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.AppUser", b =>
@@ -251,27 +236,6 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d2d369f7-a917-4bd3-980a-5e0c75f8fd6f",
-                            Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "tedu.international@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Toan",
-                            LastName = "Bach",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "tedu.international@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAbE8++B+POzBdN8DhOAVZ637tQZwFnJxhwiQU9jzkxTuVhP8oK1YMVJSVv5Vbm+Wg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Cart", b =>
@@ -346,7 +310,7 @@ namespace eShopSolution.Data.Migrations
                         {
                             Id = 2,
                             IsShowOnHome = true,
-                            SortOrder = 2,
+                            SortOrder = 1,
                             Status = 1
                         });
                 });
@@ -401,10 +365,10 @@ namespace eShopSolution.Data.Migrations
                             Id = 1,
                             CategoryId = 1,
                             LanguageId = "vi-VN",
-                            Name = "Áo nam",
+                            Name = "Áo nam",
                             SeoAlias = "ao-nam",
-                            SeoDescription = "Sản phẩm áo thời trang nam",
-                            SeoTitle = "Sản phẩm áo thời trang nam"
+                            SeoDescription = "Sản phẩm áo thời trang nam",
+                            SeoTitle = "Sản phẩm áo thời trang nam"
                         },
                         new
                         {
@@ -413,28 +377,28 @@ namespace eShopSolution.Data.Migrations
                             LanguageId = "en-US",
                             Name = "Men Shirt",
                             SeoAlias = "men-shirt",
-                            SeoDescription = "The shirt products for men",
-                            SeoTitle = "The shirt products for men"
+                            SeoDescription = "The shirt product for men",
+                            SeoTitle = "The shirt product for men"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
                             LanguageId = "vi-VN",
-                            Name = "Áo nữ",
+                            Name = "Áo nữ",
                             SeoAlias = "ao-nu",
-                            SeoDescription = "Sản phẩm áo thời trang nữ",
-                            SeoTitle = "Sản phẩm áo thời trang women"
+                            SeoDescription = "Sản phẩm áo thời trang nữ",
+                            SeoTitle = "Sản phẩm áo thời trang nữ"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 2,
                             LanguageId = "en-US",
-                            Name = "Women Shirt",
-                            SeoAlias = "women-shirt",
-                            SeoDescription = "The shirt products for women",
-                            SeoTitle = "The shirt products for women"
+                            Name = "Girl Shirt",
+                            SeoAlias = "girl-shirt",
+                            SeoDescription = "The shirt product for girl",
+                            SeoTitle = "The shirt product for girl"
                         });
                 });
 
@@ -498,7 +462,7 @@ namespace eShopSolution.Data.Migrations
                         {
                             Id = "vi-VN",
                             IsDefault = true,
-                            Name = "Tiếng Việt"
+                            Name = "Tiếng Việt"
                         },
                         new
                         {
@@ -614,9 +578,9 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 7, 18, 1, 57, 38, 58, DateTimeKind.Local).AddTicks(5750),
+                            DateCreated = new DateTime(2021, 7, 18, 1, 49, 43, 602, DateTimeKind.Local).AddTicks(7691),
                             OriginalPrice = 100000m,
-                            Price = 200000m,
+                            Price = 20000m,
                             Stock = 0,
                             ViewCount = 0
                         });
@@ -697,26 +661,26 @@ namespace eShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Áo sơ mi nam trắng Việt Tiến",
-                            Details = "Áo sơ mi nam trắng Việt Tiến",
+                            Description = "",
+                            Details = "Mô tả sản phẩm",
                             LanguageId = "vi-VN",
-                            Name = "Áo sơ mi nam trắng Việt Tiến",
+                            Name = "Áo nam",
                             ProductId = 1,
-                            SeoAlias = "ao-so-mi-nam-trang-viet-tien",
-                            SeoDescription = "Áo sơ mi nam trắng Việt Tiến",
-                            SeoTitle = "Áo sơ mi nam trắng Việt Tiến"
+                            SeoAlias = "ao-nam",
+                            SeoDescription = "Sản phẩm áo thời trang nam",
+                            SeoTitle = "Sản phẩm áo thời trang nam"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Viet Tien Men T-Shirt",
-                            Details = "Viet Tien Men T-Shirt",
+                            Description = "",
+                            Details = "Description of product",
                             LanguageId = "en-US",
-                            Name = "Viet Tien Men T-Shirt",
+                            Name = "Men Shirt",
                             ProductId = 1,
-                            SeoAlias = "viet-tien-men-t-shirt",
-                            SeoDescription = "Viet Tien Men T-Shirt",
-                            SeoTitle = "Viet Tien Men T-Shirt"
+                            SeoAlias = "men-shirt",
+                            SeoDescription = "The shirt product for men",
+                            SeoTitle = "The shirt product for men"
                         });
                 });
 
